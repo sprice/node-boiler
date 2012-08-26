@@ -1,20 +1,6 @@
 extends layout
 
 block content
-  .navbar.navbar-inverse.navbar-fixed-top
-    .navbar-inner
-      .container
-        a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.brand(href='#') Express
-        .nav-collapse.collapse
-          form.navbar-form.pull-right
-            input.span2(type='text', placeholder='Email')
-            input.span2(type='password', placeholder='Password')
-            button.btn(type='submit') Sign in
-  .container
-    .hero-unit
-      h1= title
-    p Welcome to #{title}
+  .hero-unit
+    h1= title
+  p Welcome to #{title}
