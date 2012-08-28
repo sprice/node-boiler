@@ -5,8 +5,9 @@ task("default", ["lint"], function () {
 
 desc('Lint code');
 task('lint', [], function () {
-  var lint = require("./build/lint_runner.js");
-  var files = new jake.FileList();
+  var lint, files, options, passed;
+  lint = require("./build/lint_runner.js");
+  files = new jake.FileList();
   files.include('**/*.js');
   files.exclude(
     '.git'
@@ -14,8 +15,8 @@ task('lint', [], function () {
     , 'public/bootstrap/*'
     , 'public/javascripts/jquery.js'
   );
-  var options = nodeLintOptions();
-  var passed = lint.validateFileList(files.toArray(), options, {});
+  options = nodeLintOptions();
+  passed = lint.validateFileList(files.toArray(), options, {});
   if (!passed) fail("Lint failed.");
 });
 
