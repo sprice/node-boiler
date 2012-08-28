@@ -47,7 +47,7 @@ function nodeLintOptions() {
     "noempty": false,
     "nonew": false,
     "nomen": false,
-    "onevar": false,
+    "onevar": true,
     "plusplus": false,
     "regexp": false,
     "undef": true,
