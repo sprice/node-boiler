@@ -1,6 +1,6 @@
 
 //Module dependencies.
- var express = require('express')
+var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
@@ -9,7 +9,7 @@
 var app = express();
 
 // App configuration
-app.configure(function(){
+app.configure(function () {
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -20,7 +20,7 @@ app.configure(function(){
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
   app.use(flash());
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
     res.locals.messages = req.flash();
     next();
   });
@@ -29,7 +29,7 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function(){
+app.configure('development', function () {
   app.use(express.errorHandler());
 });
 
@@ -37,6 +37,6 @@ app.configure('development', function(){
 app.get('/', routes.index);
 require('./routes/sessions')(app);
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
 });
