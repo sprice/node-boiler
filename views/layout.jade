@@ -22,10 +22,11 @@ html
               input.span2(type='password', name='password', placeholder='Password')
               button.btn(type='submit') Sign in
     .container
-      - var flashTypes = ['info', 'error']
+      - var flashTypes = ['info', 'warning', 'error', 'success']
       each flashType in flashTypes
         if messages[flashType]
-          p.flash(class=flashType)
+          - var flashClass = 'text-' + flashType
+          p.flash(class=flashClass)
             = messages[flashType]
       block content
   script(src='javascripts/jquery.js')
