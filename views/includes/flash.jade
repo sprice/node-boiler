@@ -1,0 +1,6 @@
+- var flashTypes = ['info', 'error', 'success']
+each flashType in flashTypes
+  if messages[flashType]
+    - var flashClass = 'alert-' + flashType
+    p.alert(class=flashClass)
+      = messages[flashType]
