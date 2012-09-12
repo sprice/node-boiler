@@ -16,5 +16,10 @@
   },
   "devDependencies": {
     "jshint": "~0.8.1"
-  }
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
 }
