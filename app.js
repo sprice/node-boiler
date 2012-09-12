@@ -3,6 +3,7 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , passport = require('passport')
   , path = require('path')
   , flash = require('connect-flash');
 
@@ -19,6 +20,8 @@ app.configure(function () {
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(flash());
   app.use(function (req, res, next) {
     res.locals.messages = req.flash();
@@ -36,7 +39,8 @@ app.configure('development', function () {
 
 // Routes
 require('./routes/index')(app);
-require('./routes/sessions')(app);
+require('./routes/login')(app);
+require('./routes/user')(app);
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
