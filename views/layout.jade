@@ -16,11 +16,16 @@ html
             span.icon-bar
             span.icon-bar
           a.brand(href='#') #{title}
-          .nav-collapse.collapse
-            form.navbar-form.pull-right(action='/sessions', method='post')
-              input.span2(type='text', name='user', placeholder='Email')
-              input.span2(type='password', name='password', placeholder='Password')
-              button.btn(type='submit') Sign in
+          - if (!session.currentUser)
+            .nav-collapse.collapse
+              form.navbar-form.pull-right(action='/sessions', method='post')
+                input.span2(type='text', name='user', placeholder='Email')
+                input.span2(type='password', name='password', placeholder='Password')
+                button.btn(type='submit') Sign in
+          - else
+            ul.nav.pull-right
+              li
+                a(href='/logout') Logout
     .container
       include includes/flash
       block content

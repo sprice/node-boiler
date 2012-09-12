@@ -12,7 +12,12 @@ module.exports = function (app) {
 
   app.del('/sessions', function (req, res) {
     req.session.regenerate(function (err) {
-      req.flash('info', 'You have been logged out.');
+      res.redirect('/');
+    });
+  });
+
+  app.get('/logout', function (req, res) {
+    req.session.regenerate(function (err) {
       res.redirect('/');
     });
   });
