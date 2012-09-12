@@ -1,4 +1,4 @@
-var sessions = function (app) {
+module.exports = function (app) {
   app.post('/sessions', function (req, res) {
     if (('user' === req.body.user) && ('pass' === req.body.password)) {
       req.session.currentUser = req.body.user;
@@ -17,5 +17,3 @@ var sessions = function (app) {
     });
   });
 };
-
-module.exports = sessions;

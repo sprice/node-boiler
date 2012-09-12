@@ -34,7 +34,7 @@ app.configure('development', function () {
 });
 
 // Routes
-app.get('/', routes.index);
+require('./routes/index')(app);
 require('./routes/sessions')(app);
 
 http.createServer(app).listen(app.get('port'), function () {
