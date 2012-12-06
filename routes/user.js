@@ -1,6 +1,5 @@
 var User = require('../models/user')
-  , bcrypt
-   = require('bcrypt');
+  , bcrypt = require('bcrypt');
 
 module.exports = function (app) {
   // Present a form to create a user.
